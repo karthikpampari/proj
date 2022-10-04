@@ -1,0 +1,12 @@
+<h1>My Products</h1>
+
+<div id="products">
+  <ul><% @products.each do |product| %>
+   <li> <%= product.name%> |
+    <%=product.price%></li>
+    <%=product.pcount_cus%>
+    
+  <% end %>
+  </ul>
+</div>
+<%= link_to "back", root_path%>

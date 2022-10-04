@@ -1,0 +1,18 @@
+<% if current_user%>
+  <p>hello <%=current_user.email%></p>
+  <p> welcome to the application, you are a <%=current_user.role%></p> 
+  <%= link_to "All Products",products_path%>
+
+
+  <%if current_user.role=="manufacture"%>
+    <%=link_to "All Customers",customers_path%>
+    <%=link_to "WAREHOUSE",warehouses_path%>
+
+  <%end%>
+
+  <%if current_user.role=="customer"%>
+    <%=link_to "myproducts",myproducts_path%>
+  <%end%>
+<%else%>
+     <p> you are not signed in</p>
+<%end%>

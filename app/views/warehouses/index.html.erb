@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Warehouse</h1>
+
+<div id="warehouses"> 
+    <p>
+      <strong>Name:</strong>
+      <%= @warehouse.name %>
+    </p>
+    <p>
+      <strong>warehouse products:</strong><br>
+      <% @products.each do |product| %>
+        <%= product.name%> | <%= product.pcount_war%> <br>
+      <%end %>
+    </p>
+     <%= link_to "Edit this warehouse", edit_warehouse_path(@warehouse) %>
+</div>
+<div>
+  <%= link_to "Back ", root_path %>
+</div>

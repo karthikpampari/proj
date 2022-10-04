@@ -1,0 +1,11 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @product %>
+<%= link_to "back", products_path%>
+<div>
+  <% if current_user.role=="manufacture"%>
+    <%= link_to "Edit this product", edit_product_path(@product) %> 
+     <%= button_to "Destroy this product", @product, method: :delete %>
+  <%end%>
+</div>
+

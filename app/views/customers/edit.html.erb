@@ -1,0 +1,22 @@
+<h1>Editing customer</h1>
+<%= form_with(model: @customer,url: customer_path(@customer),local: true) do |form| %> 
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+    <div>
+    <%= form.label :password, style: "display: block" %>
+    <%= form.text_field :password %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Back to customers", customers_path %>
+</div>

@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Products</h1>
+
+<div id="products">
+  <% @products.each do |product| %>
+    <%= render product %>
+    <p>
+      <%if current_user.role=="manufacture"%>
+        <%=link_to "Add to Warehouse",addtowarehouse_path(product)%>
+      <% end %>
+      
+     | <%= link_to "ShowProduct", product %> |
+      <%if current_user.role=="customer"%>
+        <%=link_to "buy this product", buyproduct_path(product)%>
+      <% end %>
+    </p>
+  <% end %>
+</div>
+<%if current_user.role=="manufacture"%>
+  <%= link_to "New product", new_product_path %>
+<%end%>
+
+<%= link_to "back", root_path%>
+
+
