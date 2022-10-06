@@ -7,5 +7,10 @@ Rails.application.routes.draw do
   get "products/myproducts",as: "myproducts",to: "products#myproducts"
   resources :products
   devise_for :users
+  #---------------------
+
+
+
+  
     
 end
