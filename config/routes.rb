@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'orders/index'
   root 'cars#login'
   get "products/:id/add_to_warehouse" ,as: "addtowarehouse",to: "warehouses#addtowarehouse"
   resources :warehouses
@@ -8,9 +9,6 @@ Rails.application.routes.draw do
   resources :products
   devise_for :users
   #---------------------
-
-
-
-  
-    
+  resources :carts
+  resources :orders    
 end

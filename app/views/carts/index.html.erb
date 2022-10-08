@@ -1,0 +1,45 @@
+<h1>Cart</h1>
+<table><th>name</th>
+    <th>price</th>
+    <th>quantity</th>
+    <th> ----</th>
+    <th>sub-total</th>
+<%count=0%>
+<% @cart.each do |c| %>
+    <tr><td> <%=c.product%> </td>
+        <td> <%=c.price%>   </td> 
+        <td> 
+            <%= form_with(model: c) do |form| %> 
+                    <%= form.number_field :quantity,{min: 0 , max: 99}%>
+                    <%= form.submit "add to cart"%>
+            <% end %>
+        </td>
+        <td>  </td>
+        <%count+=c.total%>
+        <td><%=c.total%></td>
+</tr> 
+<% end %>
+</table>
+<h2>total=<%=count%></h2> 
+
+
+
+<h2>Select Warehouse </h2>
+<p>
+    <% @warehouse.each do |w| %>
+    <%=w.name%>
+    <%=w.quantity%>
+    <%=w.warehouse_charges%><br>
+    <% w.products.each do |wp| %>
+      <%=wp.name%> | <%=wp.price%><br>
+    <%end%>
+    <br>
+    <%end%>
+</p>
+
+<%= link_to "checkout" %> 
+
+
+
+
+
