@@ -4,15 +4,21 @@
   <%= link_to "All Products",products_path%>
 
 
-  <%if current_user.role=="manufacture"%>
-    <%=link_to "All Customers",customers_path%>
-    <%=link_to "WAREHOUSE",warehouses_path%>
 
+    <%if current_user.role=="manufacture"%>
+      <%=link_to "All Customers",customers_path%>
+      <%=link_to "WAREHOUSE",warehouses_path%>
+
+    <%end%>
+
+  <%if current_user.role=="agent"%>
+    <%=button_to "Add Products"%>
   <%end%>
 
   <%if current_user.role=="customer"%>
     <%=link_to "myproducts",myproducts_path%>
   <%end%>
 <%else%>
-     <p> you are not signed in</p>
+<%=button_to "Sign In", new_user_session_path%><br>    
 <%end%>
+
